@@ -1,0 +1,9 @@
+<div ng-controller='questionController'>
+    <a href="/logout">logout</a>
+    <a href="#/dash">Home</a>
+    <h1>New Question</h1>
+    <p ng-repeat='error in Qerrors' style='color: red'>{{error}}</p>
+    Question: <textarea type="text" ng-model='newQ.text'></textarea>
+    Description (optional):<textarea type="text" ng-model='newQ.description'></textarea>
+    <button ng-click='addQuestion()'>Submit</button>
+</div>
