@@ -1,10 +1,10 @@
-app.controller('questionController', function($scope, questionFactory, $routeParams){
+app.controller('questionController', function($scope, questionFactory, sessionFactory, $routeParams){
     $scope.addQuestion = function(){
         $scope.Qerrors = [];
         if(!$scope.newQ || !$scope.newQ.text){
-            $scope.Qerrors.push('Please type something in Question field');
+            $scope.Qerrors.push('Please type something in Topic field');
         } else if($scope.newQ.text.length < 10){
-            $scope.Qerrors.push('Question must be at least 10 characters long.');
+            $scope.Qerrors.push('Topic must be at least 10 characters long.');
         } else {
             questionFactory.addQuestion($scope.newQ);
         }
@@ -26,4 +26,7 @@ app.controller('questionController', function($scope, questionFactory, $routePar
             $scope.questions = data;
         })
     }
+    sessionFactory.checkStatus(function(data){
+        $scope.curUser = data;
+    })
 })

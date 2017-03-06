@@ -1,22 +1,33 @@
-<div ng-controller='sessionController'>
+<div class="dash" ng-controller='sessionController'>
+    <form class="logout" action="/logout">
+        <input type="submit" value="Log Out">
+    </form>
+    <div class="header">
+        <h1>Hi {{curUser.name[0].toUpperCase() + curUser.name.slice(1)}}!</h1>
+        <form class="newQ" action="#/new_question">
+            <input type="submit" value="Add new topic">
+        </form>
+        <input class='filter' type="text" ng-model='filter_name.text' placeholder="Search topics">
+    </div>
 
-    <a href="/logout">logout</a>
-    <h3>Hi {{curUser.name[0].toUpperCase() + curUser.name.slice(1)}}!</h3>
-    <a href="#/new_question">Add a Question</a>
     <div ng-controller='questionController'>
-        Search: <input type="text" ng-model='filter_name.text'>
-        <table>
-            <tr>
-                <th>Question</th>
-                <th>Answers</th>
-                <th>Action</th>
-            </tr>
-            <tr ng-repeat='question in questions | filter: filter_name'>
-                <td>{{question.text}}</td>
-                <td>{{question.Acount}}</td>
-                <td><a href="#/question/{{question._id}}">Show</a></td>
-                <td><a href="#/question/new_answer/{{question._id}}">Answer</a></td>
-            </tr>
-        </table>
+        <div class="tablearea">
+            <table class="table-hover table-sm table-responsive table-striped">
+                <thead class="thead-inverse">
+                    <tr>
+                        <th>Topic</th>
+                        <th># of Opinions</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat='question in questions | filter: filter_name'>
+                        <td>{{question.text}}</td>
+                        <td>{{question._answers.length}}</td>
+                        <td><a href="#/question/{{question._id}}">Show Opinions</a><br><a href="#/question/new_answer/{{question._id}}">Add Opinion</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>

@@ -10,5 +10,10 @@ app.factory('answerFactory', function($http, $route, $location){
             $route.reload();
         })
     }
+    factory.deleteAnswer = function(answer){
+        $http.post('/answer/delete', answer).then(function(output){
+            $route.reload();
+        })
+    }
     return factory;
 })

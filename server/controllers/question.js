@@ -6,7 +6,6 @@ module.exports = (function(){
     return{
         addQuestion: function(req, res){
             var question = new Question(req.body);
-            question.Acount = 0;
             question.save(function(err, data){
                 if(err){
                     res.json(err);

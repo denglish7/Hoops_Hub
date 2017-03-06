@@ -1,0 +1,96 @@
+html {
+    height: 100%;
+    margin: 0px auto;
+    padding: 0px auto;
+}
+
+body {
+    height: 100%;
+    margin: 0px auto;
+    padding: 0px auto;
+    background-image: url("../img/NFfnpU6-free-basketball-backgrounds.jpg");
+}
+
+.login {
+    background-color: rgba(255, 255, 255, 0.75);
+    width: 40em;
+    border: 1px solid black;
+    padding: 1em;
+    margin: 1em;
+    border-radius: 10px;
+}
+
+.logout {
+    padding: 1em;
+    display: inline-block;
+}
+
+.tablearea {
+    background-color: rgba(255, 255, 255, 0.75);
+    width: 40em;
+    border: 1px solid black;
+    padding: 1em;
+    margin: 1em;
+    border-radius: 10px;
+}
+
+.filter {
+    display: inline-block;
+}
+.newQ {
+    display: inline-block;
+}
+.home {
+    display: inline-block;
+}
+.header {
+    background-color: rgba(255, 255, 255, 0.75);
+    width: 40em;
+    border: 1px solid black;
+    padding: 1em;
+    margin: 1em;
+    border-radius: 10px;
+}
+
+label {
+	display: block;
+	width: 30em;
+	margin: 0;
+    color: black;
+}
+
+.addInput {
+	width: 35em;
+    height: 3em;
+}
+
+.question {
+    background-color: rgba(255, 255, 255, 0.75);
+    width: 40em;
+    height: 15em;
+    border: 1px solid black;
+    padding: 1em;
+    margin: 1em;
+    border-radius: 10px;
+}
+
+.detailBox {
+    background-color: rgba(255, 255, 255, .75);
+    width: 35em;
+    border:1px solid black;
+    margin:1em;
+    padding: 1em;
+}
+
+#likes {
+    display: inline-block;
+}
+img {
+    vertical-align: top;
+}
+p {
+    margin: 0;
+}
+a {
+    display: block;
+}

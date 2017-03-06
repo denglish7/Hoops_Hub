@@ -1,13 +1,22 @@
 <div ng-controller='questionController'>
-    <a href="/logout">logout</a>
-    <a href="#/dash">Home</a>
-    <a href="#/question/{{cur_question._id}}">Go Back to Question</a>
-    <h1>{{cur_question.text}}</h1>
-    <h4>{{cur_question.description}}</h4>
-    <div ng-controller='answerController'>
-        <p ng-repeat='error in Aerrors' style='color: red'>{{error}}</p>
-        Your Answer: <textarea ng-model='newA.text' rows="8" cols="80"></textarea><br>
-        Supporting details for your answer (optional)<textarea ng-model='newA.description' rows="8" cols="80"></textarea>
+    <form class="logout" action="/logout">
+        <input type="submit" value="Log Out">
+    </form>
+    <form class="home" action="#/dash">
+        <input type="submit" value="Go to Home">
+    </form>
+    <div class="header">
+        <a href="#/question/{{cur_question._id}}">Go Back to Question</a>
+        <h1>{{cur_question.text}}</h1>
+        <h4>{{cur_question.description}}</h4>
+    </div>
+
+    <div class="question" ng-controller='answerController'>
+        <label>Opinion:</label>
+        <textarea class="addInput" ng-model='newA.text' rows="8" cols="80"></textarea>
+        <label>Supporting details for your Opinion(optional):</label>
+        <textarea class="addInput" ng-model='newA.description' rows="8" cols="80"></textarea>
         <button ng-click='addAnswer(cur_question._id)'>Submit</button>
+        <p ng-repeat='error in Aerrors' style='color: red'>{{error}}</p>
     </div>
 </div>

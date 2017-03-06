@@ -1,6 +1,8 @@
-<div ng-controller='sessionController'>
-    <h1>Q & A</h1>
+<div class="login" ng-controller='sessionController'>
+    <h1>Hoops Hub</h1>
+    <h5>Got a hoops related debate topic?</h5>
+    <h5>Post it here and start a debate!</h5>
     <p ng-repeat='error in errors' style='color: red'>{{error}}</p>
-    Name <input type="text" ng-model='logReg.name'>
-    <input type="submit" value='login or register' ng-click='login()'>
+    Username <input type="text" ng-model='logReg.name'>
+    <input type="submit" value='Login or Register' ng-click='login()'>
 </div>

@@ -26,13 +26,21 @@ module.exports = (function(){
         likeAnswer: function(req, res){
             Answer.findOne({_id: req.body._id}, function(err, answer){
                 answer.likes += 1;
-                answer.save(function(err, answerData){
-                    if(err){
-                        res.json(err)
-                    } else {
-                        res.json(answerData)
-                    }
+                User.findOne({_id: req.session.user._id}, function(err, user){
+                    answer._userLikes.push(user._id);
+                    answer.save(function(err, answerData){
+                        if(err){
+                            res.json(err)
+                        } else {
+                            res.json(answerData)
+                        }
+                    })
                 })
+            })
+        },
+        deleteAnswer: function(req, res){
+            Answer.remove({_id: req.body._id}, function(err, data){
+                res.json({status: true});
             })
         }
     }

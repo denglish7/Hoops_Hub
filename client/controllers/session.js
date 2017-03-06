@@ -12,9 +12,9 @@ app.controller('sessionController', function($scope, sessionFactory, $routeParam
         if(!$scope.logReg || !$scope.logReg.name){
             $scope.errors.push('Please type something in login field.');
         } else if($scope.logReg.name.length < 3){
-            $scope.errors.push('Name must be at least 3 characters long.');
+            $scope.errors.push('Username must be at least 3 characters long.');
         } else if($scope.logReg.name.length > 10){
-            $scope.errors.push('Name must be shorter than 10 characters.');
+            $scope.errors.push('Username must be shorter than 10 characters.');
         } else {
             sessionFactory.login($scope.logReg);
             $scope.logReg = '';

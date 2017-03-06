@@ -1,16 +1,30 @@
-<div ng-controller='questionController'>
-    <a href="/logout">logout</a>
-    <a href="#/dash">Home</a>
-    <a href="#/question/new_answer/{{cur_question._id}}">Answer this Question</a>
-    <h1>{{cur_question.text}}</h1>
-    <h4>{{cur_question.description}}</h4>
-    <div ng-repeat="answer in cur_question._answers | orderBy: '-likes'" style= 'border: 1px solid black'>
-        <p>{{answer._user.name}}:</p>
-        <p>{{answer.text}}</p>
-        <p>{{answer.description}}</p>
-        <p>{{answer.likes}}</p>
-        <div ng-controller='answerController'>
-            <button ng-click='likeAnswer(answer)'>Like!</button>
+<div ng-controller="sessionController">
+    <div class="partials" ng-controller='questionController'>
+        <form class="logout" action="/logout">
+            <input type="submit" value="Log Out">
+        </form>
+        <form class="home" action="#/dash">
+            <input type="submit" value="Go to Home">
+        </form>
+        <div class="header">
+            <a href="#/question/new_answer/{{cur_question._id}}">Add an opinion for this topic</a>
+            <h4>{{cur_question.text}}</h4>
+            <h4>{{cur_question.description}}</h4>
+        </div>
+        <div class="tablearea">
+            <p ng-if='cur_question._answers.length < 1'>No opinions for this topic yet.</p>
+            <div class="detailBox" ng-repeat="answer in cur_question._answers | orderBy: '-likes'">
+                <p>{{answer._user.name}} says:</p>
+                <p>{{answer.text}}</p>
+                <p>{{answer.description}}</p>
+                <img src="./static/img/glyphicons-344-thumbs-up.png" alt="">
+                <p id="likes">{{answer.likes}}</p>
+                <div ng-controller='answerController'>
+                    <p ng-if="answer._userLikes.includes(curUser._id)">You liked this</p>
+                    <button ng-if="answer._userLikes.includes(curUser._id) == false" type="submit" ng-click='likeAnswer(answer)'>Like!</button>
+                    <a href ng-if="curUser._id == answer._user._id" ng-click="deleteAnswer(answer)">Delete</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

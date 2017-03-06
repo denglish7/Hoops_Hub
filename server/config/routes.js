@@ -27,4 +27,7 @@ module.exports = function(app){
     app.post('/answer/like', function(req, res){
         answer.likeAnswer(req, res);
     })
+    app.post('/answer/delete', function(req, res){
+        answer.deleteAnswer(req, res);
+    })
 }

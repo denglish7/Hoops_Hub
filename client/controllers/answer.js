@@ -1,10 +1,10 @@
-app.controller('answerController', function($scope, answerFactory, questionFactory, $routeParams){
+app.controller('answerController', function($scope, answerFactory, questionFactory, sessionFactory, $routeParams){
     $scope.addAnswer = function(id){
         $scope.Aerrors = [];
         if(!$scope.newA || !$scope.newA.text){
-            $scope.Aerrors.push('Please type something in Answer field');
+            $scope.Aerrors.push('Please type something in Opinion field');
         } else if($scope.newA.text.length < 5){
-            $scope.Aerrors.push('Answer must be at least 5 characters long.');
+            $scope.Aerrors.push('Opinion must be at least 5 characters long.');
         } else {
             $scope.newA._question = id;
             answerFactory.addAnswer($scope.newA);
@@ -12,5 +12,11 @@ app.controller('answerController', function($scope, answerFactory, questionFacto
     }
     $scope.likeAnswer = function(answer){
         answerFactory.likeAnswer(answer);
+    }
+    sessionFactory.checkStatus(function(data){
+        $scope.curUser = data;
+    })
+    $scope.deleteAnswer = function(answer){
+        answerFactory.deleteAnswer(answer);
     }
 })
