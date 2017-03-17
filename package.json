@@ -1,19 +1,25 @@
 {
   "name": "Hoops_Hub",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "This example is so cool.",
+  "main": "web.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+      "example",
+      "heroku"
+  ],
+  "author": "jane-doe",
+  "license": "MIT",
   "dependencies": {
     "body-parser": "^1.16.0",
     "express": "^4.14.1",
     "express-session": "^1.15.0",
     "mongoose": "^4.8.1",
     "path": "^0.12.7"
+    },
+    "engines": {
+    "node": "6.10.0"
   }
 }
