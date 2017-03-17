@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-      "example",
-      "heroku"
+    "example",
+    "heroku"
   ],
   "author": "jane-doe",
   "license": "MIT",
@@ -16,10 +16,11 @@
     "body-parser": "^1.16.0",
     "express": "^4.14.1",
     "express-session": "^1.15.0",
+    "mongodb": "^2.2.24",
     "mongoose": "^4.8.1",
     "path": "^0.12.7"
-    },
-    "engines": {
+  },
+  "engines": {
     "node": "6.10.0",
     "npm": "3.10.10"
   }
