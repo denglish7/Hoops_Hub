@@ -11,7 +11,6 @@ module.exports = (function(){
             answer.likes = 0;
             answer.save(function(err, answer){
                 Question.findOne({_id: req.body._question}, function(err, question){
-                    question.Acount += 1;
                     question._answers.push(answer._id);
                     question.save(function(err, questionData){
                         res.json(answer);
